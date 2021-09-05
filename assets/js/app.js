@@ -18,6 +18,24 @@ import { Socket } from "phoenix"
 import topbar from "topbar"
 import { LiveSocket } from "phoenix_live_view"
 
+let statusRefreshTimeout = 0
+
+const Hooks = {
+  AppView: {
+     destroyed: () => {
+      window.clearInterval(statusRefreshTimeout)
+    },
+    mounted: function () {
+      window.clearInterval(statusRefreshTimeout)
+      statusRefreshTimeout = window.setInterval(() => {
+        if (!document.hidden) {
+          this.pushEvent("refresh", {})
+        }
+      }, 3000)
+    }
+  }
+}
+
 let csrfToken = document.querySelector("meta[name='csrf-token']").getAttribute("content")
 let liveSocket = new LiveSocket('/phx/live', Socket, {
   // setup Alpine with LiveView
@@ -31,7 +49,7 @@ let liveSocket = new LiveSocket('/phx/live', Socket, {
   params: {
     _csrf_token: csrfToken
   },
-  // hooks: Hooks
+  hooks: Hooks
 })
 
 // Show progress bar on live navigation and form submits
