@@ -31,7 +31,7 @@ const Hooks = {
         if (!document.hidden) {
           this.pushEvent("refresh", {})
         }
-      }, 3000)
+      }, 2500)
     }
   }
 }
