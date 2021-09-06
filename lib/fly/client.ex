@@ -205,6 +205,11 @@ defmodule Fly.Client do
             status
             version
           }
+          ipAddresses {
+            nodes {
+              address
+            }
+          }
           organization {
             id
             slug
