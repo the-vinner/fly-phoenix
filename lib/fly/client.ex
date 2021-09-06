@@ -179,12 +179,37 @@ defmodule Fly.Client do
       query($name: String!) {
         app(name: $name) {
           id
-          name
+          allocations {
+            checks {
+              status
+            }
+            createdAt
+            desiredStatus
+            failed
+            id
+            healthy
+            region
+            restarts
+            status
+            taskName
+            version
+          }
+          deployed
+          deploymentStatus {
+            id
+            description
+            desiredCount
+            healthyCount
+            placedCount
+            unhealthyCount
+            status
+            version
+          }
           organization {
             id
             slug
           }
-          deployed
+          name
           status
           processGroups {
             name
@@ -196,7 +221,10 @@ defmodule Fly.Client do
               memoryMb
             }
           }
-          releases(last: 5) {
+          regions {
+            code
+          }
+          releases(first: 5) {
             totalCount
             nodes {
               version
