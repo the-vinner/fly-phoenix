@@ -11,10 +11,11 @@
 
 ### UX
 - Make UI refreshes more obvious by highlighting recently added elements or elements that have changed
-- Make sure all edge and failure cases are handled correctly
+- In the timeline, it's not clear why a red "x" is shown when the stable property is set to false. I'd change the icon or change it to a label if it's not meant to indicate failure.
 - Make sure relative timestamps take into account user timezones
 - Show user initials when the user has no avatar in the timeline
 - Option to show screenshot or iframe of live app that refreshes 
+- Make sure all edge and failure cases are handled correctly
 
 ### Developer experience
 - Turn common elements (layouts, containers, buttons, titles...) into shared components
