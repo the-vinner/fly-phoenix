@@ -10,12 +10,13 @@
 ## Ideas for improvement
 
 ### UX
+- Make UI refreshes more obvious by highlighting recently added elements or elements that have changed
 - Make sure all edge and failure cases are handled correctly
 - Make sure relative timestamps take into account user timezones
 - Show user initials when the user has no avatar in the timeline
 - Option to show screenshot or iframe of live app that refreshes 
 
-### Developer ergonomics
+### Developer experience
 - Turn common elements (layouts, containers, buttons, titles...) into shared components
 - Consider using separate .graphql/.gql files so that VS Code GraphQL extensions can be used for autocomplete/validation (until better support exists in .heex files)
 
